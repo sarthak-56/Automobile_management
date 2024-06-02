@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Motors Pvt ltd</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{
+            background-color:white;
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; 
+        }
+
+        .navbar {
+            background-color: #333;
+            color: white;
+        }
+        
+        .navbar-brand {
+            color: red;
+            font-weight: bolder;
+            font-size: 30px;
+        }
+        
+        .navbar-nav .nav-link {
+            color: white;
+        }
+
+        .container {
+            width: 100%;
+            padding: 5%;
+            border:0.5px solid white;
+            background-color: transparent;
+            backdrop-filter: blur(5px);
+            margin-top:5%;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .contact-item {
+            margin-right:20%;
+            margin-left:20%;
+        }
+        
+        .contact-item i {
+            margin-right: 5%;
+
+        }
+        
+        .contact-item a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            
+            color: #333;
+        
+        }
+        
+        
+        .contact-item a:hover {
+            text-decoration: none;
+        }
+        .fa-envelope{
+            color:red;
+        }
+        .fa-phone-square{
+            color:green;
+            margin-left:10%;
+        }
+    
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a style="color:red; font-weight:bolder; font-size:30px;" class="navbar-brand" >MyMotors</a>
+            <button class="navbar-toggler btn btn-outline-danger" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            {% csrf_token %}
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'signup' %}" >Signup</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <hr>
+        <h1>Contact Us</h1>
+        <hr>
+        <div class="contact-info">
+            <div class="contact-item">
+                <a href="mailto:mr.srm789@gmail.com"><i class="fa fa-4x fa-envelope"></i>
+                mr.srm789@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <a href="tel:+8260531212"> <i class="fa fa-4x fa-phone-square"></i>
+                +8260531212</a>
+            </div>
+        </div>
+    </div>
+
+       
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+
+       
+
+
+    </form>
+
+</body>
+
+</html>

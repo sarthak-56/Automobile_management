@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Motors Pvt ltd</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        /* CSS */
+
+        body {
+            padding-top: 56px; /* Adjust based on the navbar height */
+            margin-top: 3%; /* Margin-top for the form */
+        }
+        
+        .navbar {
+            background-color: #333;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000; /* Ensure navbar is above other content */
+        }
+        
+        .navbar-brand {
+            color: red;
+            font-weight: bolder;
+            font-size: 30px;
+        }
+        
+        .navbar-nav .nav-link {
+            color: white;
+        }
+        
+        .container {
+            width: 60%;
+            margin: auto;
+            padding: 5%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            margin-top: 3%; /* Margin-top for the form */
+        }
+        
+        .btn-primary {
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        
+
+
+    </style>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a style="color:red; font-weight:bolder; font-size:30px;" class="navbar-brand" >MyMotors</a>
+            <button class="navbar-toggler btn btn-outline-danger" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            {% csrf_token %}
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a class="nav-link"  href="{% url 'signup' %}">Signup</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<!-- Bootstrap JS without integrity attribute -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+ 
+ 
+    <!-- HTML -->
+<form class="container" method="POST" action="{% url 'signup' %}">
+    
+    {% csrf_token %}
+    <h1 class="text-center mb-4">Signup</h1>
+    {% for message in messages %}
+    <div class="alert alert-danger" role="alert">{{ message }}</div>
+    {% endfor %}
+    <div class="mb-3">
+        <label for="exampleInputName" class="form-label">Name</label>
+        <input type="text" class="form-control" id="exampleInputName" name="name" autocomplete="off">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputUsername" class="form-label">Username</label>
+        <input type="text" class="form-control" id="exampleInputUsername" name="username" autocomplete="off">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword" name="password" autocomplete="off">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail" class="form-label">Email</label>
+        <input type="email" class="form-control" id="exampleInputEmail" name="email" autocomplete="off">
+        <div class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPhoneNumber" class="form-label">Phone No</label>
+        <input type="tel" class="form-control" id="exampleInputPhoneNumber" name="mobile" autocomplete="off">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputAddress" class="form-label">Address</label>
+        <input type="text" class="form-control" id="exampleInputAddress" name="address" autocomplete="off">
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="termcond">
+        <label class="form-check-label" for="exampleCheck1">I Agree</label>
+        <div class="form-text">Terms & conditions</div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+        <button type="submit" class="btn btn-outline-danger">Signup</button>
+    </div>
+    
+</form>
+
+    
+
+</body>
+</html>

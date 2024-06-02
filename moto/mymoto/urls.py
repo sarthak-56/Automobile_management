@@ -1,0 +1,31 @@
+from django.urls import path
+from . import views
+urlpatterns = [
+    path('',views.Home_page,name="home"),
+    path('about/',views.About_page,name="about"),
+    path('contact/',views.Contact_page,name="contact"),
+    path('signup/',views.Signup_page,name="signup"),
+    path('login/',views.Login_page,name="login"),
+    path('brands/',views.brands_view,name="brands"),
+    path('userprofile/',views.UserProfileView,name="userprofile"),
+    path('home',views.Logout,name="logout"),
+    path('home2/',views.Home,name="home2"),
+    path('home2/',views.Back,name="back"),
+    path('bike/',views.bike_view,name="bike"),
+    path('car/',views.scooter_view,name="car"),
+    path('<int:id>',views.details,name="detail"),
+    path('brands/',views.Back1,name="back1"),
+    path('details1/<int:id>',views.details1,name="detail1"),
+    path('details2/<int:id>',views.details2,name="detail2"),
+    path('bike/',views.Back1,name="back2"),
+    path('car/',views.Back1,name="back3"),
+    path('contactdealer/',views.contactdeal,name="contactdeal"),
+    path('contactdealer1/', views.contact_dealer, name='contactdeal'),
+    path('addbikeform/', views.addbike, name='addbike'),
+    path('addbike/', views.Addbikes, name='Addbike'),
+    path('addcarform/', views.addcar, name='addcar'),
+    path('addcar/', views.Addcars, name='Addcar'),
+    path('addscootyform/', views.addscooty, name='addscooty'),
+    path('addscooty/', views.Addscooty, name='Addscooty'),
+   
+]

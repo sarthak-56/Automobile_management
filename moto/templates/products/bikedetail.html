@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <title>bike view</title>
+
+  <style>
+
+    #image-slider {
+      height: 85vh; 
+      width: 100%; 
+      margin-top:3%;
+    }
+
+    #image-slider .carousel-inner {
+      height: 100%;
+    }
+
+    #image-slider .carousel-item {
+      height: 100%;
+    }
+
+    #image-slider img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+    @media (max-width: 768px) {
+      #image-slider {
+        height: 30vh;
+        margin-top:3%;
+      }
+      .custom-border {
+        height: 70vh; 
+        width:90vw;
+      }
+    
+      .custom-border img {
+        height: auto;
+        width: 70%; /* Adjust width for smaller screens */
+      }
+    
+      .custom-border h2 {
+        font-size: 24px; /* Adjust font size for smaller screens */
+        margin-top: 8px; /* Adjust top margin for smaller screens */
+      }
+    }
+
+    @media (max-width: 680px) {
+      #image-slider {
+        height: 30vh;
+        margin-top:3%;
+      }
+      .custom-border {
+        height: 70vh; 
+        width:90vw;
+      }
+    
+      .custom-border img {
+        height: 50vh;
+        width: 90vw; 
+      }
+    
+      .custom-border h2 {
+        font-size: 24px; 
+        margin-top: 8px; 
+      }
+    }
+
+    @media (max-width: 400px) {
+      #image-slider {
+        height:20vh; 
+        margin-top:3%;
+      }
+      .custom-border {
+        height: auto; 
+      }
+    
+      .custom-border img {
+        height: 50vh;
+        width: 90vw; 
+
+      }
+    
+      .custom-border h2 {
+        font-size: 24px; 
+        margin-top: 10px; 
+      }
+      .card-body{
+        border:2px solid black;
+        margin:10%;
+      }
+    }
+
+    .card-body{
+      border:2px solid black;
+      margin:1.8%;
+    }
+    .custom-border {
+      border: 2px solid black;
+      width: 90%;
+      height: 20vh;
+      margin: 1.5%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; 
+    }
+  
+    .custom-border img {
+      height: 50%;
+      width: 50%;
+      object-fit: contain; 
+      line-height: 0.1;
+    }
+    .custom-border h5 {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #333;
+      line-height: 0.1;
+    }
+    .custom-border h2 {
+      font-size: 30px;
+      color: #333;
+      margin-top: 10px; 
+      line-height: 0.1;
+  
+    }
+    .pre{
+      width:90%;
+      height:auto;
+      margin:5%;
+      border:1px solid red;
+      padding:2.5%;
+      background-color:red;
+      font-weight:bolder;
+      color:white;
+      font-size:large;
+      border-radius:0px 30px 0px 30px ;
+    }
+    .product-image {
+      max-width: 100%; 
+      height: auto;
+      border:5px solid white; 
+      display: block; 
+    }
+    
+  
+    .product-image:hover {
+      opacity: 0.8; 
+    }
+    .text-center{
+      margin-bottom:3%;
+    }
+    .btn{
+      background-color:whitesmoke;
+      width:60%;
+      height:10vh;
+      border:none;
+      border-style: none;
+      transition: background-color 0.3s;
+      font-weight:bolder;
+      font-size:larger;
+    }
+    .btn:hover {
+      background-color: red;
+      color:white;
+    }
+    .fa-arrow-circle-left{
+      color:red;
+      margin-top:3%;
+      margin-left:7%;
+  }
+  </style>
+</head>
+<body>
+  <a href="{% url 'back2' %}"><i class="fa fa-4x fa-arrow-circle-left" aria-hidden="true"><h1 class="card-title"></h1></i></a>
+<div id="image-slider" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+
+                        <div class="carousel-item active">
+                          <img src="{{ product.img1.url }}"  class="d-block w-100" alt="Slide 1">
+                        </div>
+                        <div class="carousel-item">
+                          <img src="{{ product.img2.url }}" class="d-block w-100" alt="Slide 2">
+                        </div>
+                        <div class="carousel-item">
+                          <img src="{{ product.img3.url }}" class="d-block w-100" alt="Slide 2">
+                        </div>
+                       
+  </div>
+
+  <a class="carousel-control-prev" href="#image-slider" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#image-slider" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+<div class="card-body">
+  <h5 class="card-title">{{ product.name }}</h5>
+  <p class="card-text">{{ product.Description1 }}</p>
+  <strong>Price: ₹ {{ product.price }} lakh </strong>
+</div>
+
+<div class="container">
+  <div class="row">
+      <div class="col custom-border">
+         <img src="{% static 'images/engine.png' %}"  alt="">
+         <h5>{{ product.engine }}</h5>
+         <h2>cc</h2>
+      </div>
+      <div class="col custom-border">
+          <img src="{% static 'images/power.png' %}" alt="">
+          <h5>{{ product.power }}</h5>
+          <h2>bhp</h2>
+      </div>
+      <div class="col custom-border">
+          <img src="{% static 'images/mileage.png' %}" alt="">
+          <h5>{{ product.mileage }}</h5>
+          <h2>km/h</h2>
+      </div>
+      <div class="col custom-border">
+         <img src="{% static 'images/weight.png' %}"  alt="">
+         <h5>{{ product.weight }}</h5>
+         <h2>kg</h2>
+      </div>
+      <div class="col custom-border">
+          <img src="{% static 'images/torque.webp' %}" alt="">
+          <h5>{{ product.torque }}</h5>
+          <h2>Nm</h2>
+      </div>
+    </div>
+  </div>
+
+ 
+  <div class="pre">
+  <p>{{product.aboutcar}}</p>
+  </div>  
+  
+  <div class="text-center">
+    <a href="{% url 'contactdeal' %}"><button type="button" class="btn">Contact Dealer</button></a>
+</div>
+
+
+  <img src="{{ product.img4.url }}" alt="" class="product-image">
+  <img src="{{ product.img5.url }}" alt="" class="product-image">
+  <img src="{{ product.img6.url }}" alt="" class="product-image">
+  <img src="{{ product.img7.url }}" alt="" class="product-image">
+
+
+
+  
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

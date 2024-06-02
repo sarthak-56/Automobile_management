@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bike room</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+
+        width: 100%;
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; 
+    }
+
+    .navbar {
+      background-color: #333;
+      color: red;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000; 
+  }
+  
+  .navbar-brand {
+      color: red;
+      font-weight: bolder;
+      font-size: 30px;
+  }
+  
+    .navbar-nav .nav-link {
+      color: white; 
+
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: red; 
+      text-decoration: none; 
+      
+    }
+
+    .d-flex {
+        margin: 0.9%;
+    }
+
+    .form-control {
+        width: 100%;
+        border-style: none;
+    }
+
+    .form-control:hover {
+        box-shadow: black 0px 0px 20px 0px;
+        height: 1%;
+    }
+
+    .fa-motorcycle {
+        color: black;
+    }
+
+  h5 {
+    color: black;
+    margin-right: 0.4%;
+    }
+    .brands-container {
+      padding: 20px;
+  }
+  .brands-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+  
+  }
+  .brand-card {
+      margin-bottom: 20px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+  }
+
+  .brand-logo {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 10px;
+  }
+
+    </style>
+</head>
+<body>
+  <div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a style="color:red; font-weight:bolder; font-size:30px;" class="navbar-brand" >MyMotors</a>
+          <button  class="navbar-toggler btn btn-outline-danger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span  class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{% url 'home2' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'bike' %}">Bikes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'car' %}">Scooters</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'brands' %}">Cars</a>
+              </li>
+          
+            </ul>
+           
+          </div>
+        </div>
+      </nav>
+
+      <div class="brands-container">
+        <h1 style="text-align:center;">Brands</h1>
+        <div class="row">
+          {% for product in products %}
+          <div class="col-md-6">
+            <div class="card mb-3">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="{{ product.logo.url }}" alt="{{ product.name }}" class="img-fluid rounded-start" style="max-height: 200px;">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">{{ product.Description1 }}</p>
+                    <p><strong>Price:</strong> ₹ {{ product.price }} lakh</p>
+                    <a href="{% url 'detail1' product.id %}" class="btn btn-outline-danger">View more</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      
+</body>
+</html>

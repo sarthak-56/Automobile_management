@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Motors Pvt ltd</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+       
+        #brandForm {
+            width: 90%;
+            max-width: 600px; /* Limiting maximum width */
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* Ensure padding is included in width */
+        }
+        
+        label {
+            font-weight: bold;
+            display: block; /* Ensure labels are on their own line */
+        }
+        
+        input[type="text"],
+        input[type="number"],
+        textarea,
+        input[type="file"],
+        button {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        /* Styling for the "Cancel" button */
+        button[type="button"] {
+            background-color: #ff6600;
+        }
+        
+        button[type="button"]:hover {
+            background-color: #ff5500;
+        }
+        .fa-arrow-circle-left{
+            color:red;
+        }
+
+    </style>
+</head>
+
+<body>
+  
+
+    
+    <form id="brandForm" method="POST"  enctype="multipart/form-data" action="{% url 'Addcar' %}">
+        {% csrf_token %}
+        <a href="{{ request.META.HTTP_REFERER }}" class="text-decoration-none">
+            <i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i>
+            <h1 class="card-title"></h1>
+        </a>
+        <hr>
+        <h1 style="color:red; font-weight:bolder; text-align:center;">Add your Car</h1>
+        <hr>
+        <label for="name">Name:</label>
+        <input id="name" type="text" name="name" required autocomplete="off">
+        <br>
+
+        <label for="Description1">Description:</label>
+        <textarea id="Description1" name="Description1" rows="4" cols="50"></textarea autocomplete="off">
+        <br>
+
+        <label for="price">Price:</label>
+        <input id="price" type="number" name="price" step="0.01" required autocomplete="off">
+        <br>
+
+
+        <label for="logo">Logo:</label>
+        <input id="logo" type="file" name="logo" accept="image/*" autocomplete="off">
+        <br>
+
+        <label for="img1">Image 1:</label>
+        <input id="img1" type="file" name="img1" accept="image/*" autocomplete="off">
+        <br>
+
+        <label for="img2">Image 2:</label>
+        <input id="img2" type="file" name="img2" accept="image/*" autocomplete="off">
+        <br>
+
+        <label for="img3">Image 3:</label>
+        <input id="img3" type="file" name="img3" accept="image/*" autocomplete="off">
+        <br>
+
+        <label for="engine">Engine:</label>
+        <input id="engine" type="number" name="engine" step="0.01" required autocomplete="off">
+        <br>
+
+        <label for="power">Power:</label>
+        <input id="power" type="number" name="power" step="0.01" required autocomplete="off">
+        <br>
+
+        <label for="torque">Torque:</label>
+        <input id="torque" type="number" name="torque" step="0.01" required autocomplete="off">
+        <br>
+
+        <label for="mileage">Mileage:</label>
+        <input id="mileage" type="number" name="mileage" step="0.01" required autocomplete="off">
+        <br>
+
+        <label for="weight">Weight:</label>
+        <input id="weight" type="number" name="weight" step="0.01" required autocomplete="off">
+        <br>
+
+        <label for="aboutcar">About Car:</label>
+        <textarea id="aboutcar" name="aboutcar" rows="4" cols="50"></textarea autocomplete="off">
+        <br>
+
+
+        <label for="img4">Front view:</label>
+        <input id="img4" type="file" name="img4" accept="image/*" autocomplete="off">
+        <br>
+
+        <label for="img5">Side view:</label>
+        <input id="img5" type="file" name="img5" accept="image/*" autocomplete="off">
+        <br>
+
+        <label for="img6">Side view:</label>
+        <input id="img6" type="file" name="img6" accept="image/*" autocomplete="off">
+        <br>
+
+        <label for="img7">Back view:</label>
+        <input id="img7" type="file" name="img7" accept="image/*" autocomplete="off">
+        <br>
+        
+        <button type="submit">Add your Car here</button>
+    </form>
+    
+
+
+</body>
+
+</html>

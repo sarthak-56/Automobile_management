@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Home2</title>
+
+  <style>
+    body{
+      overflow-x: hidden; 
+    }
+    .navbar {
+      background-color: #333;
+      color: red;
+      z-index: 1000; 
+      position:fixed;
+      width:100%;
+    }
+    .navbar-brand {
+      color: red;
+      font-weight: bolder;
+      font-size: 30px;
+    }
+    .navbar-nav .nav-link {
+      color: white; 
+    }
+    .navbar-nav .nav-link:hover {
+      color: red; 
+      text-decoration: none; 
+    }
+    .form-control {
+      width: 100%;
+      border-style: none;
+    }
+    .form-control:hover {
+      box-shadow: black 0px 0px 20px 0px;
+      height: 1%;
+    }
+    .fa-motorcycle {
+      color: black;
+    }
+    h5 {
+      color: black;
+      margin-right: 0.4%;
+      margin-left:50%;
+    }
+    /* Custom CSS for the slider */
+    #image-slider {
+      height: 90vh; /* 50% of the viewport height */
+      width: 100vw; /* 100% of the viewport width */
+      
+    }
+    #image-slider .carousel-inner {
+      height: 100%;
+      margin-top:5%;
+    }
+    #image-slider .carousel-item {
+      height: 100%;
+    }
+    #image-slider {
+      max-height: 90vh; 
+      width: 100vw; 
+      overflow: hidden; 
+    }
+    #image-slider img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+    @media (max-width: 768px) {
+      #image-slider {
+        height: 30vh; 
+      }
+    }
+    #wel {
+      color: red;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+  }
+  
+  .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+  }
+  
+  .link-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  h1 {
+      font-size: 24px;
+      margin: 10px 0;
+  }
+  
+  a {
+      text-decoration: none;
+      color: #333;
+      transition: color 0.3s ease;
+  }
+  
+  a:hover {
+      color: red;
+      text-decoration: none;
+      font-weight:bolder;
+  }
+
+  p:hover {
+    background-color: red; 
+    cursor: pointer; 
+    color:white;
+  }
+  
+ 
+  p {
+    width: 100%;
+    padding: 5%;
+    font-weight: bolder;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  .input-group {
+    margin-bottom: 20px;
+  }
+  .btn-primary {
+    border-radius: 0 5px 5px 0;
+  }
+  #searchResults {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  .result-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  .result-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .contact-item a {
+    color: #212529;
+    text-decoration: none;
+    margin-left: 10px;
+    font-size: 18px;
+  }
+  .contact-item a:hover {
+    color: #dc3545;
+  }
+  .fa-envelope {
+    color: #007bff; /* Change envelope icon color */
+  }
+  </style>
+</head>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+<div>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a style="color:red; font-weight:bolder; font-size:30px;" class="navbar-brand" href="#">MyMotors</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">☰</span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'bike' %}">Bikes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'car' %}">Scooters</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'brands' %}">Cars</a>
+          </li>
+        </ul>
+        {% if user.is_authenticated %}
+          <h5 id="wel">Welcome:  <a href="{% url 'userprofile' %}"style="text-decoration:none; color:yellow; ">{{user.username}}</a></h5>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+<div id="image-slider" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images/cslide.jpg' %}"  class="d-block w-100" alt="Slide 1">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/bslide.jpg' %}" class="d-block w-100" alt="Slide 2">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/sslide.jpg' %}" class="d-block w-100" alt="Slide 3">
+    </div>
+  </div>
+  <!-- Previous and Next controls -->
+  <a class="carousel-control-prev" href="#image-slider" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#image-slider" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<div>
+  <p >Welcome to MyMotors, your go-to destination for all things automotive! At MyMotors, we pride ourselves on providing a seamless and enjoyable experience for car enthusiasts, whether you're in search of a new ride or looking to enhance your current one.
+
+    Our extensive inventory boasts a diverse selection of top-notch vehicles, ranging from sleek sedans to robust SUVs and powerful trucks. Each vehicle undergoes rigorous inspections to ensure quality, reliability, and performance, giving you peace of mind as you embark on your journey with MyMotors.
+    
+    But MyMotors is more than just a car dealership – we're a community passionate about everything on four wheels. Our team of knowledgeable experts is here to guide you through the entire process, offering valuable insights and assistance to help you make an informed decision. Whether you're a first-time buyer or a seasoned car enthusiast, we're committed to making your experience with MyMotors exceptional.
+    
+    Explore our user-friendly website to browse through detailed listings, featuring comprehensive information about each vehicle's specifications, history, and pricing. Our intuitive search filters make it easy for you to find the perfect match based on your preferences, ensuring a tailored and efficient car-shopping experience.
+    
+    At MyMotors, we understand that financing is a crucial aspect of the car-buying journey. That's why we offer flexible financing options to accommodate a variety of budgets and credit profiles. Our finance team works diligently to secure the best rates, so you can drive away with confidence, knowing you got a great deal.
+    
+    Beyond the showroom, MyMotors is dedicated to keeping your vehicle in optimal condition. Our state-of-the-art service center is staffed with skilled technicians equipped to handle everything from routine maintenance to complex repairs. We use cutting-edge diagnostic tools and genuine parts to ensure your vehicle receives the care it deserves.
+    
+    MyMotors is not just about selling cars; it's about building lasting relationships with our customers. Join our loyalty program and enjoy exclusive perks, discounts, and priority access to special events. We value your trust and strive to exceed your expectations at every turn.
+    
+    Whether you're looking to buy, sell, or service a vehicle, MyMotors is your one-stop automotive destination. Experience the MyMotors difference – where passion meets performance, and where every journey begins with a drive towards excellence. Welcome to the MyMotors family!</p>
+</div>
+<hr><hr>  
+
+<div class="container">
+  <div class="link-container">
+      <h1><a href="{% url 'addbike' %}">Add your Bikes</a></h1>
+      <h1><a href="{% url 'addcar' %}">Add your Cars</a></h1>
+      <h1><a href="{% url 'addscooty' %}">Add your Scooters</a></h1>
+  </div>
+</div>
+
+{% comment %} <div>
+  <div class="container">
+    <h1 class="mt-5">After add your vehicle please send your bike details and your details</h1>
+    <hr>
+    <div class="contact-item items-center">
+      <i class="fa fa-envelope"></i>
+      <a href="mailto:mymotors@gmail.com">mymotors@gmail.com</a>
+    </div>
+  </div>
+</div>  {% endcomment %}
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
